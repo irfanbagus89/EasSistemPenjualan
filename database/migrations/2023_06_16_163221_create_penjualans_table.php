@@ -1,0 +1,29 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('penjualans', function (Blueprint $table) {
+            $table->increments('id_pen');
+            $table->string('no_order',10)->nullable();
+            $table->decimal('paid_amount',8,0)->nullable();
+            $table->decimal('total_price',8,0);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('penjualans');
+    }
+};
